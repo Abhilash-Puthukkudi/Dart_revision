@@ -1,3 +1,19 @@
+mixin Animal1 {
+  int age = 10;
+  // mixins are used to implemet multiple inheritance
+
+  void sayHelllo() {
+    print("say mixin1 hello!!");
+  }
+}
+
+mixin Animal2 {
+  int age = 20;
+  void sayHellllo() {
+    print("say mixin2 hello");
+  }
+}
+
 abstract class interfaceclass {
   void printHello();
   void printBye();
@@ -10,7 +26,7 @@ abstract class Animal {
   }
 }
 
-class Human extends Animal implements interfaceclass {
+class Human extends Animal with Animal1, Animal2 implements interfaceclass {
   // child class
   void sayName() {
     print("say name");
@@ -44,12 +60,17 @@ void main(List<String> args) {
   H.sayName();
   H.printBye();
   H.printHello();
-  
+  H.sayHelllo();
+  H.sayHellllo();
+
   /* 
    in dart there is no interface concept  but the concept
    of interface can be implemented using an abstrct class with 
    only function prototypes and implement the abstract class on 
    the desired class 
    
+   if we remove anotaions it the method will act as method of that class
    */
+
+  //MIXINS
 }
